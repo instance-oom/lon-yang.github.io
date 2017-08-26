@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <base href="/movies/">
+  <title>Movies</title>
+
+  <script src="angular.min.js"></script>
+  <script src="movies.js"></script>
+  <script>
+    angular.module('MovieApp', [])
+      .controller('MainController', ['$scope', function ($scope) {
+
+        $scope.movies = movies;
+
+        angular.forEach($scope.movies, function (item) {
+          item.date_timestamp = new Date(item.date).valueOf();
+        });
+
+      }]);
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .time-line {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .time-line::before {
+      position: absolute;
+      content: ' ';
+      width: 5px;
+      background: #eeeeee;
+      height: 100%;
+    }
+
+    .time-line .movie {
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .time-line .movie.movie-left {
+      margin-left: -450px;
+    }
+
+    .time-line .movie.movie-left::after {
+      top: 0;
+      position: absolute;
+      content: ' ';
+      width: 55px;
+      height: 55px;
+      background: #eee;
+      border-radius: 50%;
+      right: -102px;
+    }
+
+    .time-line .movie.movie-left span.date {
+      line-height: 55px;
+      color: darkgray;
+      position: absolute;
+      right: -195px;
+      height: 55px;
+    }
+
+    h4 {
+      color: teal;
+      font-weight: 700;
+      line-height: 55px;
+      height: 55px;
+      margin: 0;
+    }
+
+    .time-line .movie.movie-right {
+      margin-left: 450px;
+    }
+
+    .time-line .movie.movie.movie-right span.date {
+      line-height: 55px;
+      color: darkgray;
+      position: absolute;
+      left: -195px;
+      height: 55px;
+    }
+
+    .time-line .movie.movie-right::before {
+      top: 0;
+      position: absolute;
+      content: ' ';
+      width: 55px;
+      height: 55px;
+      background: #eee;
+      border-radius: 50%;
+      left: -103px;
+    }
+  </style>
+</head>
+
+<body ng-app="MovieApp" ng-controller="MainController">
+
+  <div class="time-line">
+    <div class="movie" ng-class="{'movie-left': $odd, 'movie-right': $even}" ng-repeat="movie in movies | orderBy:'-date_timestamp'">
+      <span class="date">{{ movie.date }}</span>
+      <div class="title">
+        <h4>{{ movie.name }}</h4>
+      </div>
+      <img ng-src="{{movie.images.large}}">
+    </div>
+  </div>
+
+</body>
+
+</html>
