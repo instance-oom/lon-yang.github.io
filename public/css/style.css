@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+}
+
+a {
+  text-decoration: none;
+}
+
+.top-navbar {
+  height: 50px;
+  background: #222222;
+  border-bottom: 1px solid black;
+}
+
+.top-navbar .container {
+  margin: 0 10%;
+}
+
+.top-navbar .container a {
+  height: 50px;
+  line-height: 50px;
+  color: #eeeeee;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 0 20px;
+  display: inline-block;
+}
+
+.top-navbar .container a:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+.header {
+  background: #222222;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .logo>img {
+  padding: 2px;
+  width: 150px;
+  height: 150px;
+  border: 5px solid #333;
+  border-radius: 50%;
+}
+
+.header .logo>.sentence {
+  margin-top: 15px;
+  color: darkgrey;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.header .logo>.name {
+  margin-top: 10px;
+  color: #eeeeee;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.content {
+  margin: 50px 15%;
+}
+
+.post-item {
+  padding-bottom: 30px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.post-item .title, .post-item .title>a {
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+  color: darkgrey;
+}
+
+.post-item .title:hover, .post-item .title:hover>a {
+  color: steelblue;
+  font-weight: 700;
+}
+
+.post-item .title::before {
+  position: absolute;
+  top: 3px;
+  left: -28px;
+  content: '///';
+  font-size: 14px;
+  font-weight: 700;
+  color: steelblue;
+}
+
+.post-item .description {}
+
+.post-item .description .illustration {
+  padding: 10px 10px 0 10px;
+}
+
+.post-item .description .illustration>img {
+  max-width: 100%;
+}
