@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <base href="/movies/">
   <title>Movies</title>
@@ -25,98 +25,171 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px;
+      background-color: #eeeeee;
     }
 
-    .time-line {
-      position: relative;
+    .row {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      padding-bottom: 20px;
+      position: relative;
     }
 
-    .time-line::before {
+    .row::before {
       position: absolute;
+      top: 0;
+      left: calc(50% - 2.5px);
       content: ' ';
       width: 5px;
-      background: #eeeeee;
+      background: white;
       height: 100%;
     }
 
-    .time-line .movie {
-      margin: 20px 0;
+    .row::after {
+      position: absolute;
+      top: 0;
+      left: calc(50% - 25px);
+      content: ' ';
+      border: 15px solid white;
+      width: 20px;
+      border-radius: 50%;
+      background: orange;
+      height: 20px;
+      animation: bling 2s linear infinite alternate;
+    }
+
+    .row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .row .space {
+      flex: 1;
+    }
+
+    .row .movie {
+      position: relative;
+      flex: 1;
+    }
+
+    .row .movie.movie-left {
+      padding-right: 150px;
+      text-align: right;
+    }
+
+    .row .movie.movie-right {
+      padding-left: 150px;
+      text-align: left;
+    }
+
+    .row .movie div.date {
+      position: absolute;
+      height: 50px;
+      line-height: 50px;
+      color: darkgray;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .row .movie.movie-left div.date {
+      right: -80px;
+    }
+
+    .row .movie.movie-right div.date {
+      left: -80px;
+    }
+
+    .row .movie .title {
+      height: 50px;
+      line-height: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+      color: teal;
       position: relative;
     }
 
-    .time-line .movie.movie-left {
-      margin-left: -450px;
+    .row .movie.movie-left .title {
+      margin-right: -20px;
     }
 
-    .time-line .movie.movie-left::after {
-      top: 0;
+    .row .movie.movie-right .title {
+      margin-left: -20px;
+    }
+
+    .row .movie .img-container {
+      position: relative;
+      display: inline-block;
+      padding: 10px 0;
+    }
+
+    .row .movie .img-container::before {
       position: absolute;
+      top: -5px;
       content: ' ';
-      width: 55px;
-      height: 55px;
-      background: #eee;
-      border-radius: 50%;
-      right: -102px;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border-top: 2px solid orange;
+      border-left: 2px solid orange;
+      left: -15px;
     }
 
-    .time-line .movie.movie-left span.date {
-      line-height: 55px;
-      color: darkgray;
+    .row .movie .img-container::after {
       position: absolute;
-      right: -195px;
-      height: 55px;
-    }
-
-    h4 {
-      color: teal;
-      font-weight: 700;
-      line-height: 55px;
-      height: 55px;
-      margin: 0;
-    }
-
-    .time-line .movie.movie-right {
-      margin-left: 450px;
-    }
-
-    .time-line .movie.movie.movie-right span.date {
-      line-height: 55px;
-      color: darkgray;
-      position: absolute;
-      left: -195px;
-      height: 55px;
-    }
-
-    .time-line .movie.movie-right::before {
-      top: 0;
-      position: absolute;
+      bottom: -5px;
       content: ' ';
-      width: 55px;
-      height: 55px;
-      background: #eee;
-      border-radius: 50%;
-      left: -103px;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border-right: 2px solid orange;
+      border-bottom: 2px solid orange;
+      right: -15px;
+    }
+
+    .row .movie.movie-left .img-container::before {
+      border-right: 2px solid orange;
+      border-left: none;
+      left: initial;
+      right: -15px;
+    }
+
+    .row .movie.movie-left .img-container::after {
+      border-left: 2px solid orange;
+      border-right: none;
+      left: -15px;
+      right: initial;
+    }
+
+    @keyframes bling {
+      0% {
+        background: orange;
+      }
+
+      50% {
+        background: white;
+      }
+
+      100% {
+        background: orange;
+      }
     }
   </style>
 </head>
 
 <body ng-app="MovieApp" ng-controller="MainController">
 
-  <div class="time-line">
-    <div class="movie" ng-class="{'movie-left': $odd, 'movie-right': $even}" ng-repeat="movie in movies | orderBy:'-date_timestamp'">
-      <span class="date">{{ movie.date }}</span>
-      <div class="title">
-        <h4>{{ movie.name }}</h4>
+  <div class="row" ng-class="{'reverse': $odd}" ng-repeat="movie in movies | orderBy:'-date_timestamp'">
+    <div class="space"></div>
+    <div class="movie" ng-class="{'movie-left': $odd, 'movie-right': $even}">
+      <div class="date">
+        <span>{{ movie.date_timestamp | date:'yyyy-MM-dd' }}</span>
       </div>
-      <img ng-src="{{movie.images.large}}">
+      <div class="title">{{ movie.name }}</div>
+      <div class="img-container">
+        <img ng-src="{{movie.images.large}}">
+      </div>
     </div>
   </div>
-
 </body>
 
 </html>
