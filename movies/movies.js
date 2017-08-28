@@ -1,5 +1,28 @@
 var movies = [
   {
+    "name": "星际特工：千星之城",
+    "price": 37.5,
+    "date": "2017/8/28",
+    "nums": 1,
+    "directors": [
+      {
+        "alt": "https://movie.douban.com/celebrity/1031876/",
+        "avatars": {
+          "small": "https://img3.doubanio.com/img/celebrity/small/33301.jpg",
+          "large": "https://img3.doubanio.com/img/celebrity/large/33301.jpg",
+          "medium": "https://img3.doubanio.com/img/celebrity/medium/33301.jpg"
+        },
+        "name": "吕克·贝松",
+        "id": "1031876"
+      }
+    ],
+    "images": {
+      "small": "https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2496088130.jpg",
+      "large": "https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2496088130.jpg",
+      "medium": "https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2496088130.jpg"
+    }
+  },
+  {
     "name": "星球大战：原力觉醒",
     "price": 25,
     "date": "2016/1/11",
