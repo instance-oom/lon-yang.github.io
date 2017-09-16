@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lon's Blog - 23</title>
+  <base href="/">
+  <link rel="stylesheet" href="public/css/style.css">
+  <style>
+    .post-item .title {
+      font-size: 50px;
+      margin: 0;
+      margin-left: 70px;
+    }
+
+    .post-item .title::before {
+      font-size: 40px;
+      left: -70px;
+      top: 5px;
+    }
+
+    .post-item .title:hover {
+      color: darkgrey;
+      font-weight: 500;
+    }
+
+    .doc div {
+      line-height: 1.7;
+      font-size: large;
+      margin-bottom: 20px;
+    }
+
+    .date {
+      text-align: right;
+      color: darkgray;
+      font-size: medium
+    }
+
+    ul {
+      list-style: none;
+      padding: 0 0 0 20px;
+    }
+
+    ul li {
+      padding: 5px 0;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '-';
+      position: absolute;
+      left: -10px;
+      top: 4px;
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: teal
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="top-navbar">
+      <div class="container">
+        <a href="/">Home</a>
+        <a href="https://github.com/lon-yang">Github</a>
+      </div>
+    </div>
+
+    <div class="header">
+      <div class="logo">
+        <img src="public/imgs/avatar.jpg" alt="Lon's Avatar">
+        <span class="sentence">Today just today. Don't be think too much.</span>
+        <span class="name">Lon Yang</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="post-item" ng-repeat="post in posts">
+      <h4 class="title">
+        23
+      </h4>
+    </div>
+    <div class="doc">
+      <h4>Reason</h4>
+      <div>又一个周末的开始，突然就像写点东西。</div>
+      <h4>Content</h4>
+      <div>回首过去，突然觉得自己的人生还是比较顺利，爸妈也不会对我管的特别严，一些重要的决定也能做到自己做主。尤记得初中开始被送到了县里的学校读书，刚开始觉得还不错，可是没过几个星期就觉得那简直就是煎熬（可能主要还是那时年纪小，想家），基本就是那种周末回家之后打死也不想再去学校的感觉，不过又不得不去。勉勉强强撑过了一个学期，第二学期去报了名在学校待了一天就跑（tao）回家了，最后在被骂了一顿之后还是回到了镇上读书，现在想想就觉得好笑。</div>
+      <div>我觉得后来初中毕业选择去县里而不是市里读高中也是因为离家比较近的原因吧，虽然已不记得当时怎么想的。高中是一段累并快乐着的时光，每天都是三点一线（宿舍——食堂——教室），早上六点多起床，晚上十一点睡觉，一天天的重复，最终通过高考的独木桥然后踏上了程序员的不归路……</div>
+      <div>当初选择这个专业是觉得和电脑打交道肯定很容易，毕业后找工作相对容易一些。可是，后来发现说容易简直是骗人的，第一学期一开始就碰到了一脸懵逼的C语言，从此记住了谭浩强这个人，不过也算是打下了基础，虽然那之后都没怎么用过。大学，一个神奇的地方，能让你堕落，也能让你充分发挥个人潜力，很荣幸能有这样的体验。</div>
+      <div>21，毕业，踏上另一段旅程，一个人上下班、一个人吃饭、一个人看电影，至今还是一个人。</div>
+      <div>不过还是很庆幸找到了一份自己喜欢的工作，喜欢把代码变成程序的感觉，喜欢敲击键盘的感觉，总感觉能在键盘上敲出五彩斑斓的黑~</div>
+      <h4>END</h4>
+      <div>每当老天从你身上拿走一些东西，总会给你一些其他东西，谁说的不知道，可是我觉得他忘了给我了......</div>
+      <div>可人生就是这样，虽然是一个明天接着又一个明天，可谁也不知道明天会是什么样，什么样的经历总会成就什么样的人</div>
+      <div class="date">记于23年又8个月时</div>
+
+      <h4>Open Source</h4>
+      <ul>
+        <li>
+          <a href="https://github.com/lon-yang/angular2-semantic-ui">AngularX Semantic UI Components</a>
+        </li>
+        <li>
+          <a href="https://github.com/humpback/humpback">Humpback</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+
+</html>
