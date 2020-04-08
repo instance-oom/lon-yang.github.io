@@ -33,13 +33,16 @@ webpackEmptyAsyncContext.id = "./demo/src/$$_lazy_route_resource lazy recursive"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
 
@@ -64,10 +67,12 @@ var AppRoutingModule = /** @class */ (function () {
 /*!*****************************************!*\
   !*** ./demo/src/app/app.component.scss ***!
   \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkZW1vL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIn0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkZW1vL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
@@ -81,12 +86,15 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
 var AppComponent = /** @class */ (function () {
@@ -94,7 +102,17 @@ var AppComponent = /** @class */ (function () {
         this.options = {
             showPreviewPanel: false,
             enablePreviewContentClick: false,
-            resizable: true
+            resizable: true,
+            customRender: {
+                image: function (href, title, text) {
+                    var out = "<img style=\"max-width: 100%; border: 20px solid red;\" src=\"" + href + "\" alt=\"" + text + "\"";
+                    if (title) {
+                        out += " title=\"" + title + "\"";
+                    }
+                    out += this.options.xhtml ? "/>" : ">";
+                    return out;
+                }
+            }
         };
         this.mode = 'editor';
     }
@@ -154,11 +172,18 @@ var AppComponent = /** @class */ (function () {
             }, 3000);
         });
     };
+    AppComponent.prototype.onEditorLoaded = function (editor) {
+        console.log("ACE Editor Ins: ", editor);
+        // editor.setOption('showLineNumbers', false);
+        // setTimeout(() => {
+        //   editor.setOption('showLineNumbers', true);
+        // }, 2000);
+    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/index.js!./demo/src/app/app.component.html"),
-            styles: [__webpack_require__(/*! ./app.component.scss */ "./demo/src/app/app.component.scss")]
+            template: __importDefault(__webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/dist/cjs.js!./demo/src/app/app.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./app.component.scss */ "./demo/src/app/app.component.scss")).default]
         })
     ], AppComponent);
     return AppComponent;
@@ -178,9 +203,9 @@ var AppComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm5/platform-browser.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./demo/src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./demo/src/app/app.component.ts");
 /* harmony import */ var _src_public_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../src/public_api */ "./src/public_api.ts");
@@ -189,6 +214,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
 
@@ -234,6 +262,9 @@ __webpack_require__.r(__webpack_exports__);
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var environment = {
     production: false
 };
@@ -258,10 +289,13 @@ var environment = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/__ivy_ngcc__/fesm5/platform-browser-dynamic.js");
 /* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app.module */ "./demo/src/app/app.module.ts");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./environments/environment */ "./demo/src/environments/environment.ts");
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 
 
 
@@ -275,36 +309,42 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./demo/src/app/app.component.html":
-/*!*******************************************************************!*\
-  !*** ./node_modules/raw-loader!./demo/src/app/app.component.html ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/raw-loader/dist/cjs.js!./demo/src/app/app.component.html":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./demo/src/app/app.component.html ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<div style=\"margin: 20px\">\r\n  <form novalidate #form=\"ngForm\">\r\n    <md-editor #md=\"ngModel\" name=\"Content\" [upload]=\"doUpload\" [(ngModel)]=\"content\" [mode]=\"mode\" [options]=\"options\"\r\n      required maxlength=\"600\" height=\"400px\"></md-editor>\r\n  </form>\r\n  <div class=\"well well-sm\">\r\n    <button class=\"btn btn-default btn-primary\" (click)=\"togglePreviewPanel()\">\r\n      {{ options?.showPreviewPanel ? 'Hide' : 'Show' }} Preview Panel\r\n    </button>\r\n    &nbsp;&nbsp;\r\n    <button class=\"btn btn-default btn-primary\" (click)=\"changeMode()\">Change Mode (Current: {{ mode }})</button>\r\n    &nbsp;&nbsp;\r\n    <button class=\"btn btn-default btn-primary\" (click)=\"togglePreviewClick()\">\r\n      {{ options?.enablePreviewContentClick ? 'Disable' : 'Enable' }} PreviewContentClick\r\n    </button>\r\n    &nbsp;&nbsp;\r\n    <button class=\"btn btn-default btn-primary\" (click)=\"toggleResizeAble()\">\r\n      {{ options?.resizable ? 'Disable' : 'Enable' }} Resizeable\r\n    </button>\r\n  </div>\r\n  <br>\r\n  <div class=\"well well-sm\">\r\n    <label class=\"control-label\">NgModel:</label>\r\n    <textarea class=\"form-control\" rows=\"10\" readonly [value]=\"content\"></textarea>\r\n  </div>\r\n  <div class=\"well well-sm\">\r\n    <label class=\"control-label\">Form validate:</label>\r\n    <p>Required: {{ md?.errors?.required }}</p>\r\n    <p>Maxlength: {{ md?.errors?.maxlength | json }}</p>\r\n  </div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/lib/md-editor.html":
-/*!**********************************************************!*\
-  !*** ./node_modules/raw-loader!./src/lib/md-editor.html ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"md-editor-container\" [class.font-awesome5]=\"options?.usingFontAwesome5\" [class.fullscreen]=\"isFullScreen\" [class.md-editor-resizable]=\"options?.resizable\"\r\n  [style.height]=\"height\">\r\n  <div class=\"md-layout\">\r\n    <div class=\"tool-bar\" *ngIf=\"!hideToolbar && mode != 'preview'\">\r\n      <div class=\"btn-group\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Bold\" (click)=\"insertContent('Bold')\"\r\n          *ngIf=\"!hideIcons.Bold\">\r\n          <i class=\"fa fa-bold\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Italic\" (click)=\"insertContent('Italic')\"\r\n          *ngIf=\"!hideIcons.Italic\">\r\n          <i class=\"fa fa-italic\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Heading\" (click)=\"insertContent('Heading')\"\r\n          *ngIf=\"!hideIcons.Heading\">\r\n          <i class=\"fa fa-header\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Refrence\" (click)=\"insertContent('Refrence')\"\r\n          *ngIf=\"!hideIcons.Refrence\">\r\n          <i class=\"fa fa-quote-left\"></i>\r\n        </button>\r\n      </div>\r\n      <div class=\"btn-group\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Link\" (click)=\"insertContent('Link')\"\r\n          *ngIf=\"!hideIcons.Link\">\r\n          <i class=\"fa fa-link\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Image\" (click)=\"insertContent('Image')\"\r\n          *ngIf=\"!hideIcons.Image\">\r\n          <i class=\"fa fa-image\"></i>\r\n        </button>\r\n      </div>\r\n      <div class=\"btn-group\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Unordered List\" (click)=\"insertContent('Ul')\"\r\n          *ngIf=\"!hideIcons.Ul\">\r\n          <i class=\"fa fa-list-ul\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Ordered List\" (click)=\"insertContent('Ol')\"\r\n          *ngIf=\"!hideIcons.Ol\">\r\n          <i class=\"fa fa-list-ol\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Code Block\" (click)=\"insertContent('Code')\"\r\n          *ngIf=\"!hideIcons.Code\">\r\n          <i class=\"fa fa-file-code-o\"></i>\r\n        </button>\r\n      </div>\r\n      <div class=\"btn-group\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\"\r\n          [attr.title]=\"showPreviewPanel ? 'Hide Preview' : 'Show Preview'\" (click)=\"togglePreview()\"\r\n          *ngIf=\"!hideIcons.TogglePreview\">\r\n          <i class=\"fa\" [class.fa-eye]=\"!showPreviewPanel\" [class.fa-eye-slash]=\"showPreviewPanel\"></i>\r\n        </button>\r\n      </div>\r\n      <div class=\"btn-group pull-right hide-split\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" [class.active]=\"isFullScreen\" (click)=\"fullScreen()\"\r\n          *ngIf=\"!hideIcons.FullScreen\">\r\n          <i class=\"fa\" [class.fa-arrows-alt]=\"!options?.usingFontAwesome5 || !isFullScreen\" [class.fa-compress]=\"options?.usingFontAwesome5 && isFullScreen\"></i>\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"editor-container\">\r\n      <div [class.dragover]=\"dragover\" [style.display]=\"mode == 'preview' ? 'none' : null\"\r\n        (dragover)=\"onDragover($event)\">\r\n        <div class=\"drag-container\">\r\n          <div class=\"upload-loading\">\r\n            <i class=\"fa fa-upload\" *ngIf=\"!isUploading\"></i>\r\n            <i class=\"fa fa-spinner fa-pulse fa-fw\" *ngIf=\"isUploading\"></i>\r\n            <div class=\"text\">{{ isUploading ? 'Uploading' : 'Drag it here' }}</div>\r\n          </div>\r\n        </div>\r\n        <div class=\"drag-container drag-container-mask\" (drop)=\"onDrop($event)\" (dragleave)=\"onDragleave($event)\"></div>\r\n        <div class=\"editor-panel\">\r\n          <div class=\"ace-editor\" #aceEditor></div>\r\n        </div>\r\n      </div>\r\n      <div class=\"preview-container\"[style.display]=\"showPreviewPanel ? 'block' : 'none'\" (click)=\"previewPanelClick($event)\">\r\n        <div class=\"preview-panel\" [innerHtml]=\"previewHtml\"></div>\r\n      </div>\r\n    </div>\r\n    <div class=\"md-footer\" *ngIf=\"maxlength > 0 && mode != 'preview'\">\r\n      <div class=\"text-right length-view\">\r\n        {{ markdownValue?.length }} / {{ maxlength }}\r\n      </div>\r\n      <div class=\"resize-btn\"></div>\r\n    </div>\r\n  </div>\r\n  <md-editor-resize-sensor *ngIf=\"options?.resizable\" (resize)=\"mdEditorResize($event)\"></md-editor-resize-sensor>\r\n</div>\r\n"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"margin: 20px\">\r\n  <form novalidate #form=\"ngForm\">\r\n    <md-editor #md=\"ngModel\" name=\"Content\" (onEditorLoaded)=\"onEditorLoaded($event)\" [upload]=\"doUpload\" [(ngModel)]=\"content\" [mode]=\"mode\" [options]=\"options\" required maxlength=\"600\" height=\"400px\"></md-editor>\r\n  </form>\r\n  <div class=\"well well-sm\">\r\n    <button class=\"btn btn-default btn-primary\" (click)=\"togglePreviewPanel()\">\r\n      {{ options?.showPreviewPanel ? 'Hide' : 'Show' }} Preview Panel\r\n    </button>\r\n    &nbsp;&nbsp;\r\n    <button class=\"btn btn-default btn-primary\" (click)=\"changeMode()\">Change Mode (Current: {{ mode }})</button>\r\n    &nbsp;&nbsp;\r\n    <button class=\"btn btn-default btn-primary\" (click)=\"togglePreviewClick()\">\r\n      {{ options?.enablePreviewContentClick ? 'Disable' : 'Enable' }} PreviewContentClick\r\n    </button>\r\n    &nbsp;&nbsp;\r\n    <button class=\"btn btn-default btn-primary\" (click)=\"toggleResizeAble()\">\r\n      {{ options?.resizable ? 'Disable' : 'Enable' }} Resizeable\r\n    </button>\r\n  </div>\r\n  <br>\r\n  <div class=\"well well-sm\">\r\n    <label class=\"control-label\">NgModel:</label>\r\n    <textarea class=\"form-control\" rows=\"10\" readonly [value]=\"content\"></textarea>\r\n  </div>\r\n  <div class=\"well well-sm\">\r\n    <label class=\"control-label\">Form validate:</label>\r\n    <p>Required: {{ md?.errors?.required }}</p>\r\n    <p>Maxlength: {{ md?.errors?.maxlength | json }}</p>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/lib/resize-sensor/resize-sensor.html":
-/*!****************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/lib/resize-sensor/resize-sensor.html ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/lib/md-editor.html":
+/*!**********************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/lib/md-editor.html ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<div class=\"md-editor-resize-sensor\" #resizeSensor></div>\r\n"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"md-editor-container\" [class.font-awesome5]=\"options?.usingFontAwesome5\" [class.fullscreen]=\"isFullScreen\" [class.md-editor-resizable]=\"options?.resizable\"\r\n  [style.height]=\"height\">\r\n  <div class=\"md-layout\">\r\n    <div class=\"tool-bar\" *ngIf=\"!hideToolbar && mode != 'preview'\">\r\n      <div class=\"btn-group\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Bold\" (click)=\"insertContent('Bold')\"\r\n          *ngIf=\"!hideIcons.Bold\">\r\n          <i class=\"fa fa-bold\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Italic\" (click)=\"insertContent('Italic')\"\r\n          *ngIf=\"!hideIcons.Italic\">\r\n          <i class=\"fa fa-italic\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Heading\" (click)=\"insertContent('Heading')\"\r\n          *ngIf=\"!hideIcons.Heading\">\r\n          <i class=\"fa fa-header\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Refrence\" (click)=\"insertContent('Refrence')\"\r\n          *ngIf=\"!hideIcons.Refrence\">\r\n          <i class=\"fa fa-quote-left\"></i>\r\n        </button>\r\n      </div>\r\n      <div class=\"btn-group\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Link\" (click)=\"insertContent('Link')\"\r\n          *ngIf=\"!hideIcons.Link\">\r\n          <i class=\"fa fa-link\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Image\" (click)=\"insertContent('Image')\"\r\n          *ngIf=\"!hideIcons.Image\">\r\n          <i class=\"fa fa-image\"></i>\r\n        </button>\r\n      </div>\r\n      <div class=\"btn-group\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Unordered List\" (click)=\"insertContent('Ul')\"\r\n          *ngIf=\"!hideIcons.Ul\">\r\n          <i class=\"fa fa-list-ul\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Ordered List\" (click)=\"insertContent('Ol')\"\r\n          *ngIf=\"!hideIcons.Ol\">\r\n          <i class=\"fa fa-list-ol\"></i>\r\n        </button>\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" title=\"Code Block\" (click)=\"insertContent('Code')\"\r\n          *ngIf=\"!hideIcons.Code\">\r\n          <i class=\"fa fa-file-code-o\"></i>\r\n        </button>\r\n      </div>\r\n      <div class=\"btn-group\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\"\r\n          [attr.title]=\"showPreviewPanel ? 'Hide Preview' : 'Show Preview'\" (click)=\"togglePreview()\"\r\n          *ngIf=\"!hideIcons.TogglePreview\">\r\n          <i class=\"fa\" [class.fa-eye]=\"!showPreviewPanel\" [class.fa-eye-slash]=\"showPreviewPanel\"></i>\r\n        </button>\r\n      </div>\r\n      <div class=\"btn-group pull-right hide-split\">\r\n        <button class=\"btn btn-sm btn-default\" type=\"button\" [class.active]=\"isFullScreen\" (click)=\"fullScreen()\"\r\n          *ngIf=\"!hideIcons.FullScreen\">\r\n          <i class=\"fa\" [class.fa-arrows-alt]=\"!options?.usingFontAwesome5 || !isFullScreen\" [class.fa-compress]=\"options?.usingFontAwesome5 && isFullScreen\"></i>\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"editor-container\">\r\n      <div [class.dragover]=\"dragover\" [style.display]=\"mode == 'preview' ? 'none' : null\"\r\n        (dragover)=\"onDragover($event)\">\r\n        <div class=\"drag-container\">\r\n          <div class=\"upload-loading\">\r\n            <i class=\"fa fa-upload\" *ngIf=\"!isUploading\"></i>\r\n            <i class=\"fa fa-spinner fa-pulse fa-fw\" *ngIf=\"isUploading\"></i>\r\n            <div class=\"text\">{{ isUploading ? 'Uploading' : 'Drag it here' }}</div>\r\n          </div>\r\n        </div>\r\n        <div class=\"drag-container drag-container-mask\" (drop)=\"onDrop($event)\" (dragleave)=\"onDragleave($event)\"></div>\r\n        <div class=\"editor-panel\">\r\n          <div class=\"ace-editor\" #aceEditor></div>\r\n        </div>\r\n      </div>\r\n      <div class=\"preview-container\"[style.display]=\"showPreviewPanel ? 'block' : 'none'\" (click)=\"previewPanelClick($event)\">\r\n        <div class=\"preview-panel\" [innerHtml]=\"previewHtml\"></div>\r\n      </div>\r\n    </div>\r\n    <div class=\"md-footer\" *ngIf=\"maxlength > 0 && mode != 'preview'\">\r\n      <div class=\"text-right length-view\">\r\n        {{ markdownValue?.length }} / {{ maxlength }}\r\n      </div>\r\n      <div class=\"resize-btn\"></div>\r\n    </div>\r\n  </div>\r\n  <md-editor-resize-sensor *ngIf=\"options?.resizable\" (resize)=\"mdEditorResize($event)\"></md-editor-resize-sensor>\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/lib/resize-sensor/resize-sensor.html":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/lib/resize-sensor/resize-sensor.html ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"md-editor-resize-sensor\" #resizeSensor></div>\r\n");
 
 /***/ }),
 
@@ -318,9 +358,9 @@ module.exports = "<div class=\"md-editor-resize-sensor\" #resizeSensor></div>\r\
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MarkdownEditorComponent", function() { return MarkdownEditorComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm5/platform-browser.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -333,20 +373,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 
 
 
 var MarkdownEditorComponent = /** @class */ (function () {
-    function MarkdownEditorComponent(required, maxlength, _renderer, _domSanitizer) {
+    function MarkdownEditorComponent(required, maxlength, _renderer2, _domSanitizer) {
         if (required === void 0) { required = false; }
         if (maxlength === void 0) { maxlength = -1; }
         this.required = required;
         this.maxlength = maxlength;
-        this._renderer = _renderer;
+        this._renderer2 = _renderer2;
         this._domSanitizer = _domSanitizer;
         this.hideToolbar = false;
         this.height = "300px";
         this._options = {};
+        this.onEditorLoaded = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.hideIcons = {};
         this.showPreviewPanel = true;
         this.isFullScreen = false;
@@ -428,41 +472,10 @@ var MarkdownEditorComponent = /** @class */ (function () {
     });
     MarkdownEditorComponent.prototype.ngOnInit = function () {
         var markedRender = new marked.Renderer();
-        markedRender.image = function (href, title, text) {
-            var out = "<img style=\"max-width: 100%;\" src=\"" + href + "\" alt=\"" + text + "\"";
-            if (title) {
-                out += " title=\"" + title + "\"";
-            }
-            out += this.options.xhtml ? "/>" : ">";
-            console.log(out);
-            return out;
-        };
-        markedRender.code = function (code, language) {
-            var validLang = !!(language && hljs.getLanguage(language));
-            var highlighted = validLang ? hljs.highlight(language, code).value : code;
-            return "<pre style=\"padding: 0; border-radius: 0;\"><code class=\"hljs " + language + "\">" + highlighted + "</code></pre>";
-        };
-        markedRender.table = function (header, body) {
-            return "<table class=\"table table-bordered\">\n<thead>\n" + header + "</thead>\n<tbody>\n" + body + "</tbody>\n</table>\n";
-        };
-        markedRender.listitem = function (text, task, checked) {
-            if (/^\s*\[[x ]\]\s*/.test(text) || text.startsWith('<input')) {
-                if (text.startsWith('<input')) {
-                    text = text
-                        .replace('<input disabled="" type="checkbox">', '<i class="fa fa-square-o"></i>')
-                        .replace('<input checked="" disabled="" type="checkbox">', '<i class="fa fa-check-square"></i>');
-                }
-                else {
-                    text = text
-                        .replace(/^\s*\[ \]\s*/, '<i class="fa fa-square-o"></i> ')
-                        .replace(/^\s*\[x\]\s*/, '<i class="fa fa-check-square"></i> ');
-                }
-                return "<li>" + text + "</li>";
-            }
-            else {
-                return "<li>" + text + "</li>";
-            }
-        };
+        markedRender.image = this.getRender('image');
+        markedRender.code = this.getRender('code');
+        markedRender.table = this.getRender('table');
+        markedRender.listitem = this.getRender('listitem');
         var markedjsOpt = {
             renderer: markedRender,
             highlight: function (code) { return hljs.highlightAuto(code).value; }
@@ -482,6 +495,7 @@ var MarkdownEditorComponent = /** @class */ (function () {
             var val = _this._editor.getValue();
             _this.markdownValue = val;
         });
+        this.onEditorLoaded.next(this._editor);
     };
     MarkdownEditorComponent.prototype.ngOnDestroy = function () {
         this._editor && this._editor.destroy();
@@ -581,7 +595,7 @@ var MarkdownEditorComponent = /** @class */ (function () {
     };
     MarkdownEditorComponent.prototype.fullScreen = function () {
         this.isFullScreen = !this.isFullScreen;
-        this._renderer.setElementStyle(document.body, 'overflowY', this.isFullScreen ? 'hidden' : 'auto');
+        this._renderer2.setStyle(document.body, 'overflowY', this.isFullScreen ? 'hidden' : 'auto');
         this.editorResize();
     };
     MarkdownEditorComponent.prototype.mdEditorResize = function (size) {
@@ -653,11 +667,60 @@ var MarkdownEditorComponent = /** @class */ (function () {
             return;
         this.dragover = false;
     };
+    MarkdownEditorComponent.prototype.getRender = function (renderType) {
+        var customRender = this.options && this.options.customRender && this.options.customRender[renderType];
+        if (customRender && typeof customRender === 'function') {
+            return customRender;
+        }
+        else {
+            switch (renderType) {
+                case 'image':
+                    return function (href, title, text) {
+                        var out = "<img style=\"max-width: 100%;\" src=\"" + href + "\" alt=\"" + text + "\"";
+                        if (title) {
+                            out += " title=\"" + title + "\"";
+                        }
+                        out += this.options.xhtml ? "/>" : ">";
+                        return out;
+                    };
+                case 'code':
+                    return function (code, language) {
+                        var validLang = !!(language && hljs.getLanguage(language));
+                        var highlighted = validLang ? hljs.highlight(language, code).value : code;
+                        return "<pre style=\"padding: 0; border-radius: 0;\"><code class=\"hljs " + language + "\">" + highlighted + "</code></pre>";
+                    };
+                case 'table':
+                    return function (header, body) {
+                        return "<table class=\"table table-bordered\">\n<thead>\n" + header + "</thead>\n<tbody>\n" + body + "</tbody>\n</table>\n";
+                    };
+                case 'listitem':
+                    return function (text, task, checked) {
+                        if (/^\s*\[[x ]\]\s*/.test(text) || text.startsWith('<input')) {
+                            if (text.startsWith('<input')) {
+                                text = text
+                                    .replace('<input disabled="" type="checkbox">', '<i class="fa fa-square-o"></i>')
+                                    .replace('<input checked="" disabled="" type="checkbox">', '<i class="fa fa-check-square"></i>');
+                            }
+                            else {
+                                text = text
+                                    .replace(/^\s*\[ \]\s*/, '<i class="fa fa-square-o"></i> ')
+                                    .replace(/^\s*\[x\]\s*/, '<i class="fa fa-check-square"></i> ');
+                            }
+                            return "<li>" + text + "</li>";
+                        }
+                        else {
+                            return "<li>" + text + "</li>";
+                        }
+                    };
+            }
+        }
+        return null;
+    };
     var MarkdownEditorComponent_1;
     MarkdownEditorComponent.ctorParameters = function () { return [
         { type: Boolean, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Attribute"], args: ['required',] }] },
         { type: Number, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Attribute"], args: ['maxlength',] }] },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] },
         { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"] }
     ]; };
     __decorate([
@@ -690,10 +753,14 @@ var MarkdownEditorComponent = /** @class */ (function () {
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [Object])
     ], MarkdownEditorComponent.prototype, "options", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], MarkdownEditorComponent.prototype, "onEditorLoaded", void 0);
     MarkdownEditorComponent = MarkdownEditorComponent_1 = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'md-editor',
-            template: __webpack_require__(/*! raw-loader!./md-editor.html */ "./node_modules/raw-loader/index.js!./src/lib/md-editor.html"),
+            template: __importDefault(__webpack_require__(/*! raw-loader!./md-editor.html */ "./node_modules/raw-loader/dist/cjs.js!./src/lib/md-editor.html")).default,
             providers: [
                 {
                     provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
@@ -706,11 +773,11 @@ var MarkdownEditorComponent = /** @class */ (function () {
                     multi: true
                 }
             ],
-            styles: [__webpack_require__(/*! ./md-editor.scss */ "./src/lib/md-editor.scss")]
+            styles: [__importDefault(__webpack_require__(/*! ./md-editor.scss */ "./src/lib/md-editor.scss")).default]
         }),
         __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Attribute"])('required')),
         __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Attribute"])('maxlength')),
-        __metadata("design:paramtypes", [Boolean, Number, _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"],
+        __metadata("design:paramtypes", [Boolean, Number, _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]])
     ], MarkdownEditorComponent);
     return MarkdownEditorComponent;
@@ -724,10 +791,12 @@ var MarkdownEditorComponent = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/lib/md-editor.scss ***!
   \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "@charset \"UTF-8\";\n.md-editor-container {\n  position: relative;\n  height: 100%;\n  margin-bottom: 15px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n}\n.md-editor-container.fullscreen {\n  margin: 0;\n  position: fixed;\n  border: 0;\n  top: 0;\n  left: 0;\n  width: 100% !important;\n  height: 100% !important;\n  z-index: 99999999;\n}\n.md-editor-container.md-editor-resizable:not(.fullscreen) {\n  resize: both;\n  overflow: hidden;\n  display: inline-block;\n  width: 100%;\n}\n.md-editor-container.md-editor-resizable:not(.fullscreen) .md-layout .editor-container {\n  height: calc(100% - 70px);\n}\n.md-editor-container.md-editor-resizable:not(.fullscreen) .md-footer {\n  z-index: -1;\n}\n.md-editor-container.font-awesome5 .fa.fa-header::before {\n  content: \"\";\n}\n.md-editor-container.font-awesome5 .fa.fa-file-code-o::before {\n  content: \"\";\n}\n.md-editor-container.font-awesome5 .fa.fa-arrows-alt::before {\n  content: \"\";\n}\n.md-editor-container .md-layout {\n  height: 100%;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.md-editor-container .md-layout .tool-bar {\n  background-color: whitesmoke;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n.md-editor-container .md-layout .tool-bar .btn-group {\n  padding: 6px;\n}\n.md-editor-container .md-layout .tool-bar .btn-group:first-child > .btn:first-child::before {\n  display: none;\n}\n.md-editor-container .md-layout .tool-bar .btn-group > .btn:first-child::before {\n  content: \" \";\n  background-color: darkgray;\n  width: 1px;\n  height: 24px;\n  left: -9px;\n  top: 2px;\n  position: absolute;\n}\n.md-editor-container .md-layout .tool-bar .btn-group.hide-split > .btn:first-child::before {\n  display: none;\n}\n.md-editor-container .md-layout .tool-bar .btn {\n  margin-bottom: 0;\n}\n.md-editor-container .md-layout .editor-container {\n  -webkit-box-flex: 1;\n          flex: 1;\n  display: -webkit-box;\n  display: flex;\n  height: calc(100% - 100px);\n}\n.md-editor-container .md-layout .editor-container > div {\n  -webkit-box-flex: 1;\n          flex: 1;\n}\n.md-editor-container .md-layout .editor-container > div .drag-container {\n  display: none;\n}\n.md-editor-container .md-layout .editor-container > div.dragover {\n  position: relative;\n}\n.md-editor-container .md-layout .editor-container > div.dragover .drag-container {\n  display: block;\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 10;\n  background-color: rgba(0, 0, 0, 0.4);\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  font-size: 50px;\n  color: white;\n}\n.md-editor-container .md-layout .editor-container > div.dragover .drag-container.drag-container-mask {\n  background-color: transparent;\n  z-index: 11;\n}\n.md-editor-container .md-layout .editor-container > div.dragover .drag-container .upload-loading {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.md-editor-container .md-layout .editor-container > div.dragover .drag-container .upload-loading .text {\n  font-size: 20px;\n  margin-top: 10px;\n}\n.md-editor-container .md-layout .editor-container .editor-panel {\n  height: 100%;\n}\n.md-editor-container .md-layout .editor-container .editor-panel .ace-editor {\n  height: 100%;\n  min-height: 100%;\n}\n.md-editor-container .md-layout .preview-container {\n  overflow: auto;\n}\n.md-editor-container .md-layout .preview-container .preview-panel {\n  height: 100%;\n  border-left: 1px solid rgba(0, 0, 0, 0.1);\n  background-color: white;\n  padding: 10px;\n}\n.md-editor-container .md-layout .md-footer {\n  background-color: #f0f0f0;\n  border-top: 1px solid rgba(0, 0, 0, 0.1);\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.md-editor-container .md-layout .md-footer .length-view {\n  -webkit-box-flex: 1;\n          flex: 1;\n  padding: 4px 2px 0 2px;\n  font-size: 12px;\n  line-height: 16px;\n}\n.md-editor-container .md-layout .md-footer .resize-btn {\n  width: 17px;\n}\n.md-editor-container .pull-right {\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9saWIvbWQtZWRpdG9yLnNjc3MiLCJzcmMvbGliL0Y6XFxhcHBsaWNhdGlvblxcY29kZVxcZ2l0aHViXFxuZ3gtbWFya2Rvd24tZWRpdG9yL3NyY1xcbGliXFxtZC1lZGl0b3Iuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxnQkFBZ0I7QUNBaEI7RUFDRSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLG9DQUFBO0FERUY7QUNBRTtFQUNFLFNBQUE7RUFDQSxlQUFBO0VBQ0EsU0FBQTtFQUNBLE1BQUE7RUFDQSxPQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLGlCQUFBO0FERUo7QUNDRTtFQUNFLFlBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsV0FBQTtBRENKO0FDQ0k7RUFDRSx5QkFBQTtBRENOO0FDRUk7RUFDRSxXQUFBO0FEQU47QUNVTTtFQUNFLFlBQUE7QURSUjtBQ3FCTTtFQUNFLFlBQUE7QURuQlI7QUMwQk07RUFDRSxZQUFBO0FEeEJSO0FDaUNFO0VBQ0UsWUFBQTtFQUNBLG9CQUFBO0VBQUEsYUFBQTtFQUNBLDRCQUFBO0VBQUEsNkJBQUE7VUFBQSxzQkFBQTtBRC9CSjtBQ2lDSTtFQUNFLDRCQUFBO0VBQ0EsMkNBQUE7QUQvQk47QUNpQ007RUFDRSxZQUFBO0FEL0JSO0FDaUNRO0VBQ0UsYUFBQTtBRC9CVjtBQ2tDUTtFQUNFLFlBQUE7RUFDQSwwQkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0VBQ0EsVUFBQTtFQUNBLFFBQUE7RUFDQSxrQkFBQTtBRGhDVjtBQ21DUTtFQUNFLGFBQUE7QURqQ1Y7QUNxQ007RUFDRSxnQkFBQTtBRG5DUjtBQ3VDSTtFQUNFLG1CQUFBO1VBQUEsT0FBQTtFQUNBLG9CQUFBO0VBQUEsYUFBQTtFQUNBLDBCQUFBO0FEckNOO0FDdUNNO0VBQ0UsbUJBQUE7VUFBQSxPQUFBO0FEckNSO0FDd0NNO0VBQ0UsYUFBQTtBRHRDUjtBQ3lDTTtFQUNFLGtCQUFBO0FEdkNSO0FDeUNRO0VBQ0UsY0FBQTtFQUNBLGtCQUFBO0VBQ0EsT0FBQTtFQUNBLE1BQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxvQ0FBQTtFQUNBLG9CQUFBO0VBQUEsYUFBQTtFQUNBLHlCQUFBO1VBQUEsbUJBQUE7RUFDQSx3QkFBQTtVQUFBLHVCQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7QUR2Q1Y7QUN5Q1U7RUFDRSw2QkFBQTtFQUNBLFdBQUE7QUR2Q1o7QUMwQ1U7RUFDRSxvQkFBQTtFQUFBLGFBQUE7RUFDQSw0QkFBQTtFQUFBLDZCQUFBO1VBQUEsc0JBQUE7RUFDQSx5QkFBQTtVQUFBLG1CQUFBO0FEeENaO0FDMENZO0VBQ0UsZUFBQTtFQUNBLGdCQUFBO0FEeENkO0FDOENNO0VBQ0UsWUFBQTtBRDVDUjtBQzhDUTtFQUNFLFlBQUE7RUFDQSxnQkFBQTtBRDVDVjtBQ2lESTtFQUNFLGNBQUE7QUQvQ047QUNpRE07RUFDRSxZQUFBO0VBQ0EseUNBQUE7RUFDQSx1QkFBQTtFQUNBLGFBQUE7QUQvQ1I7QUNtREk7RUFDRSx5QkFBQTtFQUNBLHdDQUFBO0VBQ0Esb0JBQUE7RUFBQSxhQUFBO0VBQ0EseUJBQUE7VUFBQSxtQkFBQTtBRGpETjtBQ21ETTtFQUNFLG1CQUFBO1VBQUEsT0FBQTtFQUNBLHNCQUFBO0VBQ0EsZUFBQTtFQUNBLGlCQUFBO0FEakRSO0FDb0RNO0VBQ0UsV0FBQTtBRGxEUjtBQ3VERTtFQUNFLFlBQUE7QURyREoiLCJmaWxlIjoic3JjL2xpYi9tZC1lZGl0b3Iuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcbi5tZC1lZGl0b3ItY29udGFpbmVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgMC4xKTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyLmZ1bGxzY3JlZW4ge1xuICBtYXJnaW46IDA7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgYm9yZGVyOiAwO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xuICB6LWluZGV4OiA5OTk5OTk5OTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyLm1kLWVkaXRvci1yZXNpemFibGU6bm90KC5mdWxsc2NyZWVuKSB7XG4gIHJlc2l6ZTogYm90aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB3aWR0aDogMTAwJTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyLm1kLWVkaXRvci1yZXNpemFibGU6bm90KC5mdWxsc2NyZWVuKSAubWQtbGF5b3V0IC5lZGl0b3ItY29udGFpbmVyIHtcbiAgaGVpZ2h0OiBjYWxjKDEwMCUgLSA3MHB4KTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyLm1kLWVkaXRvci1yZXNpemFibGU6bm90KC5mdWxsc2NyZWVuKSAubWQtZm9vdGVyIHtcbiAgei1pbmRleDogLTE7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lci5mb250LWF3ZXNvbWU1IC5mYS5mYS1oZWFkZXI6OmJlZm9yZSB7XG4gIGNvbnRlbnQ6IFwi74ecXCI7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lci5mb250LWF3ZXNvbWU1IC5mYS5mYS1maWxlLWNvZGUtbzo6YmVmb3JlIHtcbiAgY29udGVudDogXCLvhKFcIjtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyLmZvbnQtYXdlc29tZTUgLmZhLmZhLWFycm93cy1hbHQ6OmJlZm9yZSB7XG4gIGNvbnRlbnQ6IFwi74GlXCI7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAudG9vbC1iYXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZXNtb2tlO1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgcmdiYSgwLCAwLCAwLCAwLjEpO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAudG9vbC1iYXIgLmJ0bi1ncm91cCB7XG4gIHBhZGRpbmc6IDZweDtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLnRvb2wtYmFyIC5idG4tZ3JvdXA6Zmlyc3QtY2hpbGQgPiAuYnRuOmZpcnN0LWNoaWxkOjpiZWZvcmUge1xuICBkaXNwbGF5OiBub25lO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAudG9vbC1iYXIgLmJ0bi1ncm91cCA+IC5idG46Zmlyc3QtY2hpbGQ6OmJlZm9yZSB7XG4gIGNvbnRlbnQ6IFwiIFwiO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBkYXJrZ3JheTtcbiAgd2lkdGg6IDFweDtcbiAgaGVpZ2h0OiAyNHB4O1xuICBsZWZ0OiAtOXB4O1xuICB0b3A6IDJweDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAudG9vbC1iYXIgLmJ0bi1ncm91cC5oaWRlLXNwbGl0ID4gLmJ0bjpmaXJzdC1jaGlsZDo6YmVmb3JlIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLnRvb2wtYmFyIC5idG4ge1xuICBtYXJnaW4tYm90dG9tOiAwO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciB7XG4gIGZsZXg6IDE7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGhlaWdodDogY2FsYygxMDAlIC0gMTAwcHgpO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciA+IGRpdiB7XG4gIGZsZXg6IDE7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IC5lZGl0b3ItY29udGFpbmVyID4gZGl2IC5kcmFnLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IC5lZGl0b3ItY29udGFpbmVyID4gZGl2LmRyYWdvdmVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciA+IGRpdi5kcmFnb3ZlciAuZHJhZy1jb250YWluZXIge1xuICBkaXNwbGF5OiBibG9jaztcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHJpZ2h0OiAwO1xuICBib3R0b206IDA7XG4gIHotaW5kZXg6IDEwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNCk7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBmb250LXNpemU6IDUwcHg7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLmVkaXRvci1jb250YWluZXIgPiBkaXYuZHJhZ292ZXIgLmRyYWctY29udGFpbmVyLmRyYWctY29udGFpbmVyLW1hc2sge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgei1pbmRleDogMTE7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IC5lZGl0b3ItY29udGFpbmVyID4gZGl2LmRyYWdvdmVyIC5kcmFnLWNvbnRhaW5lciAudXBsb2FkLWxvYWRpbmcge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciA+IGRpdi5kcmFnb3ZlciAuZHJhZy1jb250YWluZXIgLnVwbG9hZC1sb2FkaW5nIC50ZXh0IHtcbiAgZm9udC1zaXplOiAyMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciAuZWRpdG9yLXBhbmVsIHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciAuZWRpdG9yLXBhbmVsIC5hY2UtZWRpdG9yIHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBtaW4taGVpZ2h0OiAxMDAlO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAucHJldmlldy1jb250YWluZXIge1xuICBvdmVyZmxvdzogYXV0bztcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLnByZXZpZXctY29udGFpbmVyIC5wcmV2aWV3LXBhbmVsIHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBib3JkZXItbGVmdDogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG4gIHBhZGRpbmc6IDEwcHg7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IC5tZC1mb290ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjBmMGYwO1xuICBib3JkZXItdG9wOiAxcHggc29saWQgcmdiYSgwLCAwLCAwLCAwLjEpO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAubWQtZm9vdGVyIC5sZW5ndGgtdmlldyB7XG4gIGZsZXg6IDE7XG4gIHBhZGRpbmc6IDRweCAycHggMCAycHg7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgbGluZS1oZWlnaHQ6IDE2cHg7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IC5tZC1mb290ZXIgLnJlc2l6ZS1idG4ge1xuICB3aWR0aDogMTdweDtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5wdWxsLXJpZ2h0IHtcbiAgZmxvYXQ6IHJpZ2h0O1xufSIsIi5tZC1lZGl0b3ItY29udGFpbmVyIHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgwLCAwLCAwLCAwLjEpO1xyXG5cclxuICAmLmZ1bGxzY3JlZW4ge1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgYm9yZGVyOiAwO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgbGVmdDogMDtcclxuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcclxuICAgIHotaW5kZXg6IDk5OTk5OTk5O1xyXG4gIH1cclxuXHJcbiAgJi5tZC1lZGl0b3ItcmVzaXphYmxlOm5vdCguZnVsbHNjcmVlbikge1xyXG4gICAgcmVzaXplOiBib3RoO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHdpZHRoOiAxMDAlO1xyXG5cclxuICAgIC5tZC1sYXlvdXQgLmVkaXRvci1jb250YWluZXIge1xyXG4gICAgICBoZWlnaHQ6IGNhbGMoMTAwJSAtIDcwcHgpO1xyXG4gICAgfVxyXG5cclxuICAgIC5tZC1mb290ZXIge1xyXG4gICAgICB6LWluZGV4OiAtMTtcclxuICAgIH1cclxuICB9XHJcblxyXG4gICYuZm9udC1hd2Vzb21lNSB7XHJcbiAgICAuZmEge1xyXG4gICAgICAmLmZhLWJvbGQge31cclxuXHJcbiAgICAgICYuZmEtaXRhbGljIHt9XHJcblxyXG4gICAgICAmLmZhLWhlYWRlcjo6YmVmb3JlIHtcclxuICAgICAgICBjb250ZW50OiBcIlxcZjFkY1wiO1xyXG4gICAgICB9XHJcblxyXG4gICAgICAmLmZhLXF1b3RlLWxlZnQge31cclxuXHJcbiAgICAgICYuZmEtbGluayB7fVxyXG5cclxuICAgICAgJi5mYS1pbWFnZSB7fVxyXG5cclxuICAgICAgJi5mYS1saXN0LXVsIHt9XHJcblxyXG4gICAgICAmLmZhLWxpc3Qtb2wge31cclxuXHJcbiAgICAgICYuZmEtZmlsZS1jb2RlLW86OmJlZm9yZSB7XHJcbiAgICAgICAgY29udGVudDogXCJcXGYxMjFcIjtcclxuICAgICAgfVxyXG5cclxuICAgICAgJi5mYS1leWUge31cclxuXHJcbiAgICAgICYuZmEtZXllLXNsYXNoIHt9XHJcblxyXG4gICAgICAmLmZhLWFycm93cy1hbHQ6OmJlZm9yZSB7XHJcbiAgICAgICAgY29udGVudDogXCJcXGYwNjVcIjtcclxuICAgICAgfVxyXG5cclxuICAgICAgJi5mYS11cGxvYWQge31cclxuXHJcbiAgICAgICYuZmEtc3Bpbm5lciB7fVxyXG4gICAgfVxyXG4gIH1cclxuXHJcbiAgLm1kLWxheW91dCB7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuXHJcbiAgICAudG9vbC1iYXIge1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZXNtb2tlO1xyXG4gICAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgcmdiYSgwLCAwLCAwLCAwLjEpO1xyXG5cclxuICAgICAgLmJ0bi1ncm91cCB7XHJcbiAgICAgICAgcGFkZGluZzogNnB4O1xyXG5cclxuICAgICAgICAmOmZpcnN0LWNoaWxkPi5idG46Zmlyc3QtY2hpbGQ6OmJlZm9yZSB7XHJcbiAgICAgICAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgJj4uYnRuOmZpcnN0LWNoaWxkOjpiZWZvcmUge1xyXG4gICAgICAgICAgY29udGVudDogJyAnO1xyXG4gICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogZGFya2dyYXk7XHJcbiAgICAgICAgICB3aWR0aDogMXB4O1xyXG4gICAgICAgICAgaGVpZ2h0OiAyNHB4O1xyXG4gICAgICAgICAgbGVmdDogLTlweDtcclxuICAgICAgICAgIHRvcDogMnB4O1xyXG4gICAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgJi5oaWRlLXNwbGl0Pi5idG46Zmlyc3QtY2hpbGQ6OmJlZm9yZSB7XHJcbiAgICAgICAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgICAgIH1cclxuICAgICAgfVxyXG5cclxuICAgICAgLmJ0biB7XHJcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMDtcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgIC5lZGl0b3ItY29udGFpbmVyIHtcclxuICAgICAgZmxleDogMTtcclxuICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgaGVpZ2h0OiBjYWxjKDEwMCUgLSAxMDBweCk7XHJcblxyXG4gICAgICAmPmRpdiB7XHJcbiAgICAgICAgZmxleDogMTtcclxuICAgICAgfVxyXG5cclxuICAgICAgJj5kaXYgLmRyYWctY29udGFpbmVyIHtcclxuICAgICAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgICB9XHJcblxyXG4gICAgICAmPmRpdi5kcmFnb3ZlciB7XHJcbiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG5cclxuICAgICAgICAuZHJhZy1jb250YWluZXIge1xyXG4gICAgICAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgICAgICBsZWZ0OiAwO1xyXG4gICAgICAgICAgdG9wOiAwO1xyXG4gICAgICAgICAgcmlnaHQ6IDA7XHJcbiAgICAgICAgICBib3R0b206IDA7XHJcbiAgICAgICAgICB6LWluZGV4OiAxMDtcclxuICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwgMCwgMCwgMC40KTtcclxuICAgICAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICAgICAgICBmb250LXNpemU6IDUwcHg7XHJcbiAgICAgICAgICBjb2xvcjogd2hpdGU7XHJcblxyXG4gICAgICAgICAgJi5kcmFnLWNvbnRhaW5lci1tYXNrIHtcclxuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgICAgICAgICAgIHotaW5kZXg6IDExO1xyXG4gICAgICAgICAgfVxyXG5cclxuICAgICAgICAgIC51cGxvYWQtbG9hZGluZyB7XHJcbiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcblxyXG4gICAgICAgICAgICAudGV4dCB7XHJcbiAgICAgICAgICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgICAgICAgICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgIH1cclxuICAgICAgICB9XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5lZGl0b3ItcGFuZWwge1xyXG4gICAgICAgIGhlaWdodDogMTAwJTtcclxuXHJcbiAgICAgICAgLmFjZS1lZGl0b3Ige1xyXG4gICAgICAgICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgICAgICAgbWluLWhlaWdodDogMTAwJTtcclxuICAgICAgICB9XHJcbiAgICAgIH1cclxuICAgIH1cclxuXHJcbiAgICAucHJldmlldy1jb250YWluZXIge1xyXG4gICAgICBvdmVyZmxvdzogYXV0bztcclxuXHJcbiAgICAgIC5wcmV2aWV3LXBhbmVsIHtcclxuICAgICAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICAgICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgICAgICAgcGFkZGluZzogMTBweDtcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgIC5tZC1mb290ZXIge1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjBmMGYwO1xyXG4gICAgICBib3JkZXItdG9wOiAxcHggc29saWQgcmdiYSgwLCAwLCAwLCAwLjEpO1xyXG4gICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG5cclxuICAgICAgLmxlbmd0aC12aWV3IHtcclxuICAgICAgICBmbGV4OiAxO1xyXG4gICAgICAgIHBhZGRpbmc6IDRweCAycHggMCAycHg7XHJcbiAgICAgICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgICAgIGxpbmUtaGVpZ2h0OiAxNnB4O1xyXG4gICAgICB9XHJcblxyXG4gICAgICAucmVzaXplLWJ0biB7XHJcbiAgICAgICAgd2lkdGg6IDE3cHg7XHJcbiAgICAgIH1cclxuICAgIH1cclxuICB9XHJcblxyXG4gIC5wdWxsLXJpZ2h0IHtcclxuICAgIGZsb2F0OiByaWdodDtcclxuICB9XHJcbn1cclxuIl19 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("@charset \"UTF-8\";\n.md-editor-container {\n  position: relative;\n  height: 100%;\n  margin-bottom: 15px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n}\n.md-editor-container.fullscreen {\n  margin: 0;\n  position: fixed;\n  border: 0;\n  top: 0;\n  left: 0;\n  width: 100% !important;\n  height: 100% !important;\n  z-index: 99999999;\n}\n.md-editor-container.md-editor-resizable:not(.fullscreen) {\n  resize: both;\n  overflow: hidden;\n  display: inline-block;\n  width: 100%;\n}\n.md-editor-container.md-editor-resizable:not(.fullscreen) .md-layout .editor-container {\n  height: calc(100% - 70px);\n}\n.md-editor-container.md-editor-resizable:not(.fullscreen) .md-footer {\n  z-index: -1;\n}\n.md-editor-container.font-awesome5 .fa.fa-header::before {\n  content: \"\";\n}\n.md-editor-container.font-awesome5 .fa.fa-file-code-o::before {\n  content: \"\";\n}\n.md-editor-container.font-awesome5 .fa.fa-arrows-alt::before {\n  content: \"\";\n}\n.md-editor-container .md-layout {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n}\n.md-editor-container .md-layout .tool-bar {\n  background-color: whitesmoke;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n.md-editor-container .md-layout .tool-bar .btn-group {\n  padding: 6px;\n}\n.md-editor-container .md-layout .tool-bar .btn-group:first-child > .btn:first-child::before {\n  display: none;\n}\n.md-editor-container .md-layout .tool-bar .btn-group > .btn:first-child::before {\n  content: \" \";\n  background-color: darkgray;\n  width: 1px;\n  height: 24px;\n  left: -9px;\n  top: 2px;\n  position: absolute;\n}\n.md-editor-container .md-layout .tool-bar .btn-group.hide-split > .btn:first-child::before {\n  display: none;\n}\n.md-editor-container .md-layout .tool-bar .btn {\n  margin-bottom: 0;\n}\n.md-editor-container .md-layout .editor-container {\n  flex: 1;\n  display: flex;\n  height: calc(100% - 100px);\n}\n.md-editor-container .md-layout .editor-container > div {\n  flex: 1;\n}\n.md-editor-container .md-layout .editor-container > div .drag-container {\n  display: none;\n}\n.md-editor-container .md-layout .editor-container > div.dragover {\n  position: relative;\n}\n.md-editor-container .md-layout .editor-container > div.dragover .drag-container {\n  display: block;\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 10;\n  background-color: rgba(0, 0, 0, 0.4);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 50px;\n  color: white;\n}\n.md-editor-container .md-layout .editor-container > div.dragover .drag-container.drag-container-mask {\n  background-color: transparent;\n  z-index: 11;\n}\n.md-editor-container .md-layout .editor-container > div.dragover .drag-container .upload-loading {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.md-editor-container .md-layout .editor-container > div.dragover .drag-container .upload-loading .text {\n  font-size: 20px;\n  margin-top: 10px;\n}\n.md-editor-container .md-layout .editor-container .editor-panel {\n  height: 100%;\n}\n.md-editor-container .md-layout .editor-container .editor-panel .ace-editor {\n  height: 100%;\n  min-height: 100%;\n}\n.md-editor-container .md-layout .preview-container {\n  overflow: auto;\n}\n.md-editor-container .md-layout .preview-container .preview-panel {\n  height: 100%;\n  border-left: 1px solid rgba(0, 0, 0, 0.1);\n  background-color: white;\n  padding: 10px;\n}\n.md-editor-container .md-layout .md-footer {\n  background-color: #f0f0f0;\n  border-top: 1px solid rgba(0, 0, 0, 0.1);\n  display: flex;\n  align-items: center;\n}\n.md-editor-container .md-layout .md-footer .length-view {\n  flex: 1;\n  padding: 4px 2px 0 2px;\n  font-size: 12px;\n  line-height: 16px;\n}\n.md-editor-container .md-layout .md-footer .resize-btn {\n  width: 17px;\n}\n.md-editor-container .pull-right {\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9saWIvbWQtZWRpdG9yLnNjc3MiLCJzcmMvbGliL0Y6XFxhcHBsaWNhdGlvblxcY29kZVxcZ2l0aHViXFxuZ3gtbWFya2Rvd24tZWRpdG9yL3NyY1xcbGliXFxtZC1lZGl0b3Iuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxnQkFBZ0I7QUNBaEI7RUFDRSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLG9DQUFBO0FERUY7QUNBRTtFQUNFLFNBQUE7RUFDQSxlQUFBO0VBQ0EsU0FBQTtFQUNBLE1BQUE7RUFDQSxPQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLGlCQUFBO0FERUo7QUNDRTtFQUNFLFlBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsV0FBQTtBRENKO0FDQ0k7RUFDRSx5QkFBQTtBRENOO0FDRUk7RUFDRSxXQUFBO0FEQU47QUNVTTtFQUNFLFlBQUE7QURSUjtBQ3FCTTtFQUNFLFlBQUE7QURuQlI7QUMwQk07RUFDRSxZQUFBO0FEeEJSO0FDaUNFO0VBQ0UsWUFBQTtFQUNBLGFBQUE7RUFDQSxzQkFBQTtBRC9CSjtBQ2lDSTtFQUNFLDRCQUFBO0VBQ0EsMkNBQUE7QUQvQk47QUNpQ007RUFDRSxZQUFBO0FEL0JSO0FDaUNRO0VBQ0UsYUFBQTtBRC9CVjtBQ2tDUTtFQUNFLFlBQUE7RUFDQSwwQkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0VBQ0EsVUFBQTtFQUNBLFFBQUE7RUFDQSxrQkFBQTtBRGhDVjtBQ21DUTtFQUNFLGFBQUE7QURqQ1Y7QUNxQ007RUFDRSxnQkFBQTtBRG5DUjtBQ3VDSTtFQUNFLE9BQUE7RUFDQSxhQUFBO0VBQ0EsMEJBQUE7QURyQ047QUN1Q007RUFDRSxPQUFBO0FEckNSO0FDd0NNO0VBQ0UsYUFBQTtBRHRDUjtBQ3lDTTtFQUNFLGtCQUFBO0FEdkNSO0FDeUNRO0VBQ0UsY0FBQTtFQUNBLGtCQUFBO0VBQ0EsT0FBQTtFQUNBLE1BQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxvQ0FBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7QUR2Q1Y7QUN5Q1U7RUFDRSw2QkFBQTtFQUNBLFdBQUE7QUR2Q1o7QUMwQ1U7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxtQkFBQTtBRHhDWjtBQzBDWTtFQUNFLGVBQUE7RUFDQSxnQkFBQTtBRHhDZDtBQzhDTTtFQUNFLFlBQUE7QUQ1Q1I7QUM4Q1E7RUFDRSxZQUFBO0VBQ0EsZ0JBQUE7QUQ1Q1Y7QUNpREk7RUFDRSxjQUFBO0FEL0NOO0FDaURNO0VBQ0UsWUFBQTtFQUNBLHlDQUFBO0VBQ0EsdUJBQUE7RUFDQSxhQUFBO0FEL0NSO0FDbURJO0VBQ0UseUJBQUE7RUFDQSx3Q0FBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtBRGpETjtBQ21ETTtFQUNFLE9BQUE7RUFDQSxzQkFBQTtFQUNBLGVBQUE7RUFDQSxpQkFBQTtBRGpEUjtBQ29ETTtFQUNFLFdBQUE7QURsRFI7QUN1REU7RUFDRSxZQUFBO0FEckRKIiwiZmlsZSI6InNyYy9saWIvbWQtZWRpdG9yLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAY2hhcnNldCBcIlVURi04XCI7XG4ubWQtZWRpdG9yLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xuICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMSk7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lci5mdWxsc2NyZWVuIHtcbiAgbWFyZ2luOiAwO1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGJvcmRlcjogMDtcbiAgdG9wOiAwO1xuICBsZWZ0OiAwO1xuICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xuICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcbiAgei1pbmRleDogOTk5OTk5OTk7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lci5tZC1lZGl0b3ItcmVzaXphYmxlOm5vdCguZnVsbHNjcmVlbikge1xuICByZXNpemU6IGJvdGg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgd2lkdGg6IDEwMCU7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lci5tZC1lZGl0b3ItcmVzaXphYmxlOm5vdCguZnVsbHNjcmVlbikgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciB7XG4gIGhlaWdodDogY2FsYygxMDAlIC0gNzBweCk7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lci5tZC1lZGl0b3ItcmVzaXphYmxlOm5vdCguZnVsbHNjcmVlbikgLm1kLWZvb3RlciB7XG4gIHotaW5kZXg6IC0xO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIuZm9udC1hd2Vzb21lNSAuZmEuZmEtaGVhZGVyOjpiZWZvcmUge1xuICBjb250ZW50OiBcIu+HnFwiO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIuZm9udC1hd2Vzb21lNSAuZmEuZmEtZmlsZS1jb2RlLW86OmJlZm9yZSB7XG4gIGNvbnRlbnQ6IFwi74ShXCI7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lci5mb250LWF3ZXNvbWU1IC5mYS5mYS1hcnJvd3MtYWx0OjpiZWZvcmUge1xuICBjb250ZW50OiBcIu+BpVwiO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCB7XG4gIGhlaWdodDogMTAwJTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLnRvb2wtYmFyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGVzbW9rZTtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgMC4xKTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLnRvb2wtYmFyIC5idG4tZ3JvdXAge1xuICBwYWRkaW5nOiA2cHg7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IC50b29sLWJhciAuYnRuLWdyb3VwOmZpcnN0LWNoaWxkID4gLmJ0bjpmaXJzdC1jaGlsZDo6YmVmb3JlIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLnRvb2wtYmFyIC5idG4tZ3JvdXAgPiAuYnRuOmZpcnN0LWNoaWxkOjpiZWZvcmUge1xuICBjb250ZW50OiBcIiBcIjtcbiAgYmFja2dyb3VuZC1jb2xvcjogZGFya2dyYXk7XG4gIHdpZHRoOiAxcHg7XG4gIGhlaWdodDogMjRweDtcbiAgbGVmdDogLTlweDtcbiAgdG9wOiAycHg7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLnRvb2wtYmFyIC5idG4tZ3JvdXAuaGlkZS1zcGxpdCA+IC5idG46Zmlyc3QtY2hpbGQ6OmJlZm9yZSB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IC50b29sLWJhciAuYnRuIHtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLmVkaXRvci1jb250YWluZXIge1xuICBmbGV4OiAxO1xuICBkaXNwbGF5OiBmbGV4O1xuICBoZWlnaHQ6IGNhbGMoMTAwJSAtIDEwMHB4KTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLmVkaXRvci1jb250YWluZXIgPiBkaXYge1xuICBmbGV4OiAxO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciA+IGRpdiAuZHJhZy1jb250YWluZXIge1xuICBkaXNwbGF5OiBub25lO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciA+IGRpdi5kcmFnb3ZlciB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLmVkaXRvci1jb250YWluZXIgPiBkaXYuZHJhZ292ZXIgLmRyYWctY29udGFpbmVyIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICByaWdodDogMDtcbiAgYm90dG9tOiAwO1xuICB6LWluZGV4OiAxMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLCAwLCAwLCAwLjQpO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgZm9udC1zaXplOiA1MHB4O1xuICBjb2xvcjogd2hpdGU7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IC5lZGl0b3ItY29udGFpbmVyID4gZGl2LmRyYWdvdmVyIC5kcmFnLWNvbnRhaW5lci5kcmFnLWNvbnRhaW5lci1tYXNrIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIHotaW5kZXg6IDExO1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAuZWRpdG9yLWNvbnRhaW5lciA+IGRpdi5kcmFnb3ZlciAuZHJhZy1jb250YWluZXIgLnVwbG9hZC1sb2FkaW5nIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLmVkaXRvci1jb250YWluZXIgPiBkaXYuZHJhZ292ZXIgLmRyYWctY29udGFpbmVyIC51cGxvYWQtbG9hZGluZyAudGV4dCB7XG4gIGZvbnQtc2l6ZTogMjBweDtcbiAgbWFyZ2luLXRvcDogMTBweDtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLmVkaXRvci1jb250YWluZXIgLmVkaXRvci1wYW5lbCB7XG4gIGhlaWdodDogMTAwJTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLmVkaXRvci1jb250YWluZXIgLmVkaXRvci1wYW5lbCAuYWNlLWVkaXRvciB7XG4gIGhlaWdodDogMTAwJTtcbiAgbWluLWhlaWdodDogMTAwJTtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLnByZXZpZXctY29udGFpbmVyIHtcbiAgb3ZlcmZsb3c6IGF1dG87XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAubWQtbGF5b3V0IC5wcmV2aWV3LWNvbnRhaW5lciAucHJldmlldy1wYW5lbCB7XG4gIGhlaWdodDogMTAwJTtcbiAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBwYWRkaW5nOiAxMHB4O1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAubWQtZm9vdGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDtcbiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cbi5tZC1lZGl0b3ItY29udGFpbmVyIC5tZC1sYXlvdXQgLm1kLWZvb3RlciAubGVuZ3RoLXZpZXcge1xuICBmbGV4OiAxO1xuICBwYWRkaW5nOiA0cHggMnB4IDAgMnB4O1xuICBmb250LXNpemU6IDEycHg7XG4gIGxpbmUtaGVpZ2h0OiAxNnB4O1xufVxuLm1kLWVkaXRvci1jb250YWluZXIgLm1kLWxheW91dCAubWQtZm9vdGVyIC5yZXNpemUtYnRuIHtcbiAgd2lkdGg6IDE3cHg7XG59XG4ubWQtZWRpdG9yLWNvbnRhaW5lciAucHVsbC1yaWdodCB7XG4gIGZsb2F0OiByaWdodDtcbn0iLCIubWQtZWRpdG9yLWNvbnRhaW5lciB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuXHJcbiAgJi5mdWxsc2NyZWVuIHtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIGJvcmRlcjogMDtcclxuICAgIHRvcDogMDtcclxuICAgIGxlZnQ6IDA7XHJcbiAgICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xyXG4gICAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XHJcbiAgICB6LWluZGV4OiA5OTk5OTk5OTtcclxuICB9XHJcblxyXG4gICYubWQtZWRpdG9yLXJlc2l6YWJsZTpub3QoLmZ1bGxzY3JlZW4pIHtcclxuICAgIHJlc2l6ZTogYm90aDtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuXHJcbiAgICAubWQtbGF5b3V0IC5lZGl0b3ItY29udGFpbmVyIHtcclxuICAgICAgaGVpZ2h0OiBjYWxjKDEwMCUgLSA3MHB4KTtcclxuICAgIH1cclxuXHJcbiAgICAubWQtZm9vdGVyIHtcclxuICAgICAgei1pbmRleDogLTE7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICAmLmZvbnQtYXdlc29tZTUge1xyXG4gICAgLmZhIHtcclxuICAgICAgJi5mYS1ib2xkIHt9XHJcblxyXG4gICAgICAmLmZhLWl0YWxpYyB7fVxyXG5cclxuICAgICAgJi5mYS1oZWFkZXI6OmJlZm9yZSB7XHJcbiAgICAgICAgY29udGVudDogXCJcXGYxZGNcIjtcclxuICAgICAgfVxyXG5cclxuICAgICAgJi5mYS1xdW90ZS1sZWZ0IHt9XHJcblxyXG4gICAgICAmLmZhLWxpbmsge31cclxuXHJcbiAgICAgICYuZmEtaW1hZ2Uge31cclxuXHJcbiAgICAgICYuZmEtbGlzdC11bCB7fVxyXG5cclxuICAgICAgJi5mYS1saXN0LW9sIHt9XHJcblxyXG4gICAgICAmLmZhLWZpbGUtY29kZS1vOjpiZWZvcmUge1xyXG4gICAgICAgIGNvbnRlbnQ6IFwiXFxmMTIxXCI7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgICYuZmEtZXllIHt9XHJcblxyXG4gICAgICAmLmZhLWV5ZS1zbGFzaCB7fVxyXG5cclxuICAgICAgJi5mYS1hcnJvd3MtYWx0OjpiZWZvcmUge1xyXG4gICAgICAgIGNvbnRlbnQ6IFwiXFxmMDY1XCI7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgICYuZmEtdXBsb2FkIHt9XHJcblxyXG4gICAgICAmLmZhLXNwaW5uZXIge31cclxuICAgIH1cclxuICB9XHJcblxyXG4gIC5tZC1sYXlvdXQge1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcblxyXG4gICAgLnRvb2wtYmFyIHtcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGVzbW9rZTtcclxuICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuXHJcbiAgICAgIC5idG4tZ3JvdXAge1xyXG4gICAgICAgIHBhZGRpbmc6IDZweDtcclxuXHJcbiAgICAgICAgJjpmaXJzdC1jaGlsZD4uYnRuOmZpcnN0LWNoaWxkOjpiZWZvcmUge1xyXG4gICAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgICY+LmJ0bjpmaXJzdC1jaGlsZDo6YmVmb3JlIHtcclxuICAgICAgICAgIGNvbnRlbnQ6ICcgJztcclxuICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6IGRhcmtncmF5O1xyXG4gICAgICAgICAgd2lkdGg6IDFweDtcclxuICAgICAgICAgIGhlaWdodDogMjRweDtcclxuICAgICAgICAgIGxlZnQ6IC05cHg7XHJcbiAgICAgICAgICB0b3A6IDJweDtcclxuICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgICYuaGlkZS1zcGxpdD4uYnRuOmZpcnN0LWNoaWxkOjpiZWZvcmUge1xyXG4gICAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgICAgICB9XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5idG4ge1xyXG4gICAgICAgIG1hcmdpbi1ib3R0b206IDA7XHJcbiAgICAgIH1cclxuICAgIH1cclxuXHJcbiAgICAuZWRpdG9yLWNvbnRhaW5lciB7XHJcbiAgICAgIGZsZXg6IDE7XHJcbiAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgIGhlaWdodDogY2FsYygxMDAlIC0gMTAwcHgpO1xyXG5cclxuICAgICAgJj5kaXYge1xyXG4gICAgICAgIGZsZXg6IDE7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgICY+ZGl2IC5kcmFnLWNvbnRhaW5lciB7XHJcbiAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgICAgfVxyXG5cclxuICAgICAgJj5kaXYuZHJhZ292ZXIge1xyXG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuXHJcbiAgICAgICAgLmRyYWctY29udGFpbmVyIHtcclxuICAgICAgICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgICAgICAgbGVmdDogMDtcclxuICAgICAgICAgIHRvcDogMDtcclxuICAgICAgICAgIHJpZ2h0OiAwO1xyXG4gICAgICAgICAgYm90dG9tOiAwO1xyXG4gICAgICAgICAgei1pbmRleDogMTA7XHJcbiAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNCk7XHJcbiAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgICAgICAgZm9udC1zaXplOiA1MHB4O1xyXG4gICAgICAgICAgY29sb3I6IHdoaXRlO1xyXG5cclxuICAgICAgICAgICYuZHJhZy1jb250YWluZXItbWFzayB7XHJcbiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gICAgICAgICAgICB6LWluZGV4OiAxMTtcclxuICAgICAgICAgIH1cclxuXHJcbiAgICAgICAgICAudXBsb2FkLWxvYWRpbmcge1xyXG4gICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICAgICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG5cclxuICAgICAgICAgICAgLnRleHQge1xyXG4gICAgICAgICAgICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICAgICAgICAgICAgICBtYXJnaW4tdG9wOiAxMHB4O1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgICB9XHJcblxyXG4gICAgICAuZWRpdG9yLXBhbmVsIHtcclxuICAgICAgICBoZWlnaHQ6IDEwMCU7XHJcblxyXG4gICAgICAgIC5hY2UtZWRpdG9yIHtcclxuICAgICAgICAgIGhlaWdodDogMTAwJTtcclxuICAgICAgICAgIG1pbi1oZWlnaHQ6IDEwMCU7XHJcbiAgICAgICAgfVxyXG4gICAgICB9XHJcbiAgICB9XHJcblxyXG4gICAgLnByZXZpZXctY29udGFpbmVyIHtcclxuICAgICAgb3ZlcmZsb3c6IGF1dG87XHJcblxyXG4gICAgICAucHJldmlldy1wYW5lbCB7XHJcbiAgICAgICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgcmdiYSgwLCAwLCAwLCAwLjEpO1xyXG4gICAgICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICAgIH1cclxuICAgIH1cclxuXHJcbiAgICAubWQtZm9vdGVyIHtcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDtcclxuICAgICAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuXHJcbiAgICAgIC5sZW5ndGgtdmlldyB7XHJcbiAgICAgICAgZmxleDogMTtcclxuICAgICAgICBwYWRkaW5nOiA0cHggMnB4IDAgMnB4O1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgICAgICBsaW5lLWhlaWdodDogMTZweDtcclxuICAgICAgfVxyXG5cclxuICAgICAgLnJlc2l6ZS1idG4ge1xyXG4gICAgICAgIHdpZHRoOiAxN3B4O1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICAucHVsbC1yaWdodCB7XHJcbiAgICBmbG9hdDogcmlnaHQ7XHJcbiAgfVxyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -741,7 +810,7 @@ module.exports = "@charset \"UTF-8\";\n.md-editor-container {\n  position: relat
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MarkdownEditorResizeSensorComponent", function() { return MarkdownEditorResizeSensorComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -750,6 +819,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 };
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
 var MarkdownEditorResizeSensorComponent = /** @class */ (function () {
@@ -807,8 +879,8 @@ var MarkdownEditorResizeSensorComponent = /** @class */ (function () {
     MarkdownEditorResizeSensorComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'md-editor-resize-sensor',
-            template: __webpack_require__(/*! raw-loader!./resize-sensor.html */ "./node_modules/raw-loader/index.js!./src/lib/resize-sensor/resize-sensor.html"),
-            styles: [__webpack_require__(/*! ./resize-sensor.scss */ "./src/lib/resize-sensor/resize-sensor.scss")]
+            template: __importDefault(__webpack_require__(/*! raw-loader!./resize-sensor.html */ "./node_modules/raw-loader/dist/cjs.js!./src/lib/resize-sensor/resize-sensor.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./resize-sensor.scss */ "./src/lib/resize-sensor/resize-sensor.scss")).default]
         }),
         __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]])
     ], MarkdownEditorResizeSensorComponent);
@@ -823,10 +895,12 @@ var MarkdownEditorResizeSensorComponent = /** @class */ (function () {
 /*!**************************************************!*\
   !*** ./src/lib/resize-sensor/resize-sensor.scss ***!
   \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".md-editor-resize-sensor {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: -1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9saWIvcmVzaXplLXNlbnNvci9GOlxcYXBwbGljYXRpb25cXGNvZGVcXGdpdGh1Ylxcbmd4LW1hcmtkb3duLWVkaXRvci9zcmNcXGxpYlxccmVzaXplLXNlbnNvclxccmVzaXplLXNlbnNvci5zY3NzIiwic3JjL2xpYi9yZXNpemUtc2Vuc29yL3Jlc2l6ZS1zZW5zb3Iuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxNQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7QUNDRiIsImZpbGUiOiJzcmMvbGliL3Jlc2l6ZS1zZW5zb3IvcmVzaXplLXNlbnNvci5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1kLWVkaXRvci1yZXNpemUtc2Vuc29yIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgbGVmdDogMDtcclxuICByaWdodDogMDtcclxuICB0b3A6IDA7XHJcbiAgYm90dG9tOiAwO1xyXG4gIHotaW5kZXg6IC0xO1xyXG59XHJcbiIsIi5tZC1lZGl0b3ItcmVzaXplLXNlbnNvciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIHRvcDogMDtcbiAgYm90dG9tOiAwO1xuICB6LWluZGV4OiAtMTtcbn0iXX0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".md-editor-resize-sensor {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: -1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9saWIvcmVzaXplLXNlbnNvci9GOlxcYXBwbGljYXRpb25cXGNvZGVcXGdpdGh1Ylxcbmd4LW1hcmtkb3duLWVkaXRvci9zcmNcXGxpYlxccmVzaXplLXNlbnNvclxccmVzaXplLXNlbnNvci5zY3NzIiwic3JjL2xpYi9yZXNpemUtc2Vuc29yL3Jlc2l6ZS1zZW5zb3Iuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxNQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7QUNDRiIsImZpbGUiOiJzcmMvbGliL3Jlc2l6ZS1zZW5zb3IvcmVzaXplLXNlbnNvci5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1kLWVkaXRvci1yZXNpemUtc2Vuc29yIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgbGVmdDogMDtcclxuICByaWdodDogMDtcclxuICB0b3A6IDA7XHJcbiAgYm90dG9tOiAwO1xyXG4gIHotaW5kZXg6IC0xO1xyXG59XHJcbiIsIi5tZC1lZGl0b3ItcmVzaXplLXNlbnNvciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIHRvcDogMDtcbiAgYm90dG9tOiAwO1xuICB6LWluZGV4OiAtMTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -840,9 +914,9 @@ module.exports = ".md-editor-resize-sensor {\n  position: absolute;\n  left: 0;\
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LMarkdownEditorModule", function() { return LMarkdownEditorModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
 /* harmony import */ var _lib_md_editor_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/md-editor.component */ "./src/lib/md-editor.component.ts");
 /* harmony import */ var _lib_resize_sensor_resize_sensor_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/resize-sensor/resize-sensor.component */ "./src/lib/resize-sensor/resize-sensor.component.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MarkdownEditorComponent", function() { return _lib_md_editor_component__WEBPACK_IMPORTED_MODULE_3__["MarkdownEditorComponent"]; });
@@ -854,6 +928,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
 
